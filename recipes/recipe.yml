@@ -7,3 +7,4 @@ image-version: 42
 
 modules:
   - from-file: base.yml
+  - from-file: hyprland.yml
