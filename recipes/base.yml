@@ -2,7 +2,7 @@ modules:
   - type: files
     files:
       - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+        destination: /
 
   - type: rpm-ostree
     install:
@@ -17,5 +17,3 @@ modules:
     remove:
       - firefox
       - firefox-langpacks
-
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
