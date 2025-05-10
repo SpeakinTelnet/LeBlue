@@ -7,5 +7,6 @@ modules:
       - hyprlock
       - hypridle
       - hyprpaper
+      - rofi-wayland
       - waybar
       - xdg-desktop-portal-hyprland
