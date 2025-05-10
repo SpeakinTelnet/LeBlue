@@ -1,0 +1,15 @@
+modules:
+    - type: default-flatpaks
+      system:
+        install:
+          - com.github.Matoking.protontricks
+          - com.heroicgameslauncher.hgl
+          - com.valvesoftware.Steam
+          - org.freedesktop.Platform.VulkanLayer.MangoHud
+          - org.freedesktop.Platform.VulkanLayer.vkBasalt
+          - org.freedesktop.Platform.VulkanLayer.OBSVkCapture
+          - net.davidotek.pupgui2
+          - net.lutris.Lutris
+          - com.obsproject.Studio.Plugin.OBSVkCapture
+          - com.obsproject.Studio.Plugin.Gstreamer
+          - com.obsproject.Studio.Plugin.GStreamerVaapi
