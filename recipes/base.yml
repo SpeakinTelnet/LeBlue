@@ -99,3 +99,16 @@ modules:
     - type: script
       scripts:
         - installrpmfusion.sh
+
+    - type: default-flatpaks
+      system:
+        install:
+          - app.zen_browser.zen
+          - com.github.tchx84.Flatseal
+          - com.github.zocker_160.SyncThingy
+          - org.fedoraproject.MediaWriter
+          - it.mijorus.gearlever
+          - org.kde.gwenview
+          - org.kde.kcalc
+          - org.kde.okular
+          - org.mozilla.Thunderbird
