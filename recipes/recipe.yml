@@ -15,3 +15,5 @@ modules:
   - from-file: sddm.yml
   - from-file: base.yml
   - from-file: hyprland.yml
+
+  - type: signing
