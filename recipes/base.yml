@@ -7,11 +7,6 @@ modules:
     - type: rpm-ostree
       install:
 
-      # devops
-        - emacs
-        - git
-        - zsh
-
       # display
         - wlr-randr
         - brightnessctl

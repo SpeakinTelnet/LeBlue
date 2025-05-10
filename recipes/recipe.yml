@@ -39,6 +39,7 @@ modules:
     - from-file: sddm.yml
     - from-file: base.yml
     - from-file: hyprland.yml
+    - from-file: dev.yml
     - from-file: game.yml
 
     - type: signing
