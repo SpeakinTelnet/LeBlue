@@ -64,11 +64,13 @@ modules:
         - ark
         - dbus-tools
         - dbus-daemon
+        - fastfetch
         - fd-find
         - fontawesome-fonts-all
         - fzf
         - gnome-disk-utility
         - just
+        - lm_sensors
         - openssl
         - polkit
         - qt6-qtmultimedia
