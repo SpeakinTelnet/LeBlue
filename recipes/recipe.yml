@@ -1,5 +1,5 @@
 ---
-name: template
+name: leblue
 description: This is my personal OS image.
 
 base-image: quay.io/fedora-ostree-desktops/base-atomic
