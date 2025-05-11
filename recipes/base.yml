@@ -1,0 +1,116 @@
+modules:
+
+    - type: script
+      scripts:
+        - installproprietarypackages.sh
+
+    - type: rpm-ostree
+      install:
+
+      # display
+        - wlr-randr
+        - brightnessctl
+        - kanshi
+
+      # graphics
+        - ddcutil
+        - ffmpeg
+        - ffmpeg-libs
+        - ffmpegthumbnailer
+        - gstreamer1-plugins-bad
+        - gstreamer1-plugins-ugly
+        - heif-pixbuf-loader
+        - libfdk-aac
+        - qt5-qtwayland
+        - qt6-qtwayland
+        - vulkan-validation-layers
+        - vulkan-tools
+        - xorg-x11-server-Xwayland
+
+      # File Management
+        - dolphin
+        - stow
+
+      # media
+        - alsa-firmware
+        - mediainfo
+        - pavucontrol
+        - pipewire
+        - pipewire-libs-extra
+        - pipewire-pulseaudio
+        - playerctl
+        - wireplumber
+
+      # networking
+        - network-manager-applet
+        - NetworkManager-openvpn
+        - NetworkManager-openvpn-gnome
+        - NetworkManager-openconnect
+        - NetworkManager-openconnect-gnome
+        - bluez
+        - bluez-tools
+        - blueman
+        - firewall-config
+
+      # notifications
+        - dunst
+
+      # screenshot
+        - slurp
+        - grim
+
+      # system
+        - autofs
+        - ark
+        - dbus-tools
+        - dbus-daemon
+        - fastfetch
+        - fd-find
+        - fontawesome-fonts-all
+        - fzf
+        - gnome-disk-utility
+        - just
+        - lm_sensors
+        - openssl
+        - polkit
+        - qt6-qtmultimedia
+        - qt6-qtvirtualkeyboard
+        - tuned-ppd
+        - wl-clipboard
+        - xdg-user-dirs
+        # - xfce-polkit
+
+      remove:
+        - firefox
+        - firefox-langpacks
+        - gstreamer1-plugins-bad-free
+        - gstreamer1-plugins-bad-free-libs
+        - gstreamer1-plugins-ugly-free
+        - gstreamer1-plugin-vaapi
+        - fdk-aac-free
+        - ffmpeg-free
+        - libavcodec-free
+        - libavdevice-free
+        - libavfilter-free
+        - libavformat-free
+        - libavutil-free
+        - libpostproc-free
+        - libswresample-free
+        - libswscale-free
+
+    - type: script
+      scripts:
+        - installrpmfusion.sh
+
+    - type: default-flatpaks
+      system:
+        install:
+          - app.zen_browser.zen
+          - com.github.tchx84.Flatseal
+          - com.github.zocker_160.SyncThingy
+          - org.fedoraproject.MediaWriter
+          - it.mijorus.gearlever
+          - org.kde.gwenview
+          - org.kde.kcalc
+          - org.kde.okular
+          - org.mozilla.Thunderbird

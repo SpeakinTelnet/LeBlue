@@ -1,44 +1,45 @@
 ---
-# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-# image will be published to ghcr.io/<user>/<name>
 name: template
-# description will be included in the image's metadata
 description: This is my personal OS image.
 
-# the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/wayblueorg/hyprland
-image-version: 41 # latest is also supported if you want new updates ASAP
+base-image: quay.io/fedora-ostree-desktops/base-atomic
+image-version: 42
 
-# module configuration, executed in order
-# you can include multiple instances of the same module
 modules:
-  - type: files
-    files:
-      - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
-  - type: rpm-ostree
-    repos:
-      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-    install:
-      - micro
-      - starship
-    remove:
-      # example: removing firefox (in favor of the flatpak)
-      # "firefox" is the main package, "firefox-langpacks" is a dependency
-      - firefox
-      - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+    - type: containerfile
+      snippets:
+        - COPY --from=ghcr.io/ublue-os/akmods:main-42 /rpms /tmp/rpms
+        - COPY --from=ghcr.io/ublue-os/akmods:main-42 /kernel-rpms /tmp/rpms/kernel
+        - RUN find /tmp/rpms
+        - RUN rpm -q ublue-os-akmods-addons || rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods-addons*.rpm
+    - type: script
+      scripts:
+        - installsignedkernel.sh
 
-  - type: default-flatpaks
-    notify: true # Send notification after install/uninstall is finished (true/false)
-    system:
-      # If no repo information is specified, Flathub will be used by default
-      install:
-        - org.mozilla.firefox
-        - org.gnome.Loupe
-      remove:
-        - org.gnome.eog
-    user: {} # Also add Flathub user repo, but no user packages
+    - type: containerfile
+      snippets:
+        - RUN rpm-ostree install just powerstat
+        - COPY --from=ghcr.io/ublue-os/config:latest /rpms/ublue-os-udev-rules.noarch.rpm /
+        - COPY --from=ghcr.io/ublue-os/config:latest /rpms/ublue-os-update-services.noarch.rpm /
+        - COPY --from=ghcr.io/ublue-os/config:latest /rpms/ublue-os-signing.noarch.rpm /
+        - COPY --from=ghcr.io/ublue-os/config:latest /rpms/ublue-os-luks.noarch.rpm /
+        - COPY --from=ghcr.io/ublue-os/config:latest /rpms/ublue-os-just.noarch.rpm /
+        - RUN rpm -ivh /ublue-os-udev-rules.noarch.rpm
+        - RUN rpm -ivh /ublue-os-update-services.noarch.rpm
+        - RUN rpm -ivh /ublue-os-signing.noarch.rpm
+        - RUN rpm -ivh /ublue-os-luks.noarch.rpm
+        - RUN rpm -ivh /ublue-os-just.noarch.rpm
 
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+    - type: files
+      files:
+        - source: system
+          destination: /
 
+    - from-file: sddm.yml
+    - from-file: base.yml
+    - from-file: hyprland.yml
+    - from-file: dev.yml
+    - from-file: game.yml
+
+    - type: signing

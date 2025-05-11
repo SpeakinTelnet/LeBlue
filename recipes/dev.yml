@@ -1,0 +1,13 @@
+modules:
+    - type: default-flatpaks
+      system:
+        install:
+          - io.github.getnf.embellish
+          - org.virt_manager.virt-manager
+
+
+    - type: rpm-ostree
+      install:
+        - emacs
+        - git
+        - zsh
