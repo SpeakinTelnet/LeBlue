@@ -47,3 +47,14 @@ install-opentabletdriver:
     else
         echo "Have a good day :)!"
     fi
+
+# Install Doom Emacs from the git repository
+[group('Dev')]
+install-doomemacs:
+    #!/usr/bin/bash
+    echo "Installing Doom Emacs"
+    git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs    
+    ~/.config/emacs/bin/doom install
+    echo 'export PATH="$HOME/.emacs/bin:$PATH" >> ~/.zshrc'
+    source ~/.zshrc
+    echo "Doom Emacs is now installed!"
