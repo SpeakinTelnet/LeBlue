@@ -17,7 +17,6 @@ modules:
         - ffmpeg
         - ffmpeg-libs
         - ffmpegthumbnailer
-        - gstreamer1-plugins-bad
         - gstreamer1-plugins-ugly
         - heif-pixbuf-loader
         - libfdk-aac
@@ -83,10 +82,7 @@ modules:
       remove:
         - firefox
         - firefox-langpacks
-        - gstreamer1-plugins-bad-free
-        - gstreamer1-plugins-bad-free-libs
         - gstreamer1-plugins-ugly-free
-        - gstreamer1-plugin-vaapi
         - fdk-aac-free
         - ffmpeg-free
         - libavcodec-free
