@@ -9,6 +9,7 @@ modules:
       - hyprlock
       - hypridle
       - hyprpaper
+      - hyprshot
       - hyprsunset
       - swww
       - waybar
