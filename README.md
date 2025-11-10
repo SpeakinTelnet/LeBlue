@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This repo is now archived in favor of [hypr-aurora](https://github.com/SpeakinTelnet/hypr-aurora).
+
 # LeBlue [![bluebuild build badge](https://github.com/speakintelnet/leblue/actions/workflows/build.yml/badge.svg)](https://github.com/speakintelnet/leblue/actions/workflows/build.yml)
 
 This is my take on an hyprland based atomic OS built on top on blue-build.
